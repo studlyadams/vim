@@ -42,7 +42,9 @@
 	set numberwidth=1	"Sets distance of Number from edge of page.
 	set cpoptions+=n	"uses line columns for text of wrapped lines.
 	highlight LineNr term=NONE cterm=NONE ctermfg=red ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-
+    colors luinnar
+    "t_Co=256
+    "colors leo
 "End Appearance /*}}}*/
 
 "Shortcuts Abbr #/*{{{*/
