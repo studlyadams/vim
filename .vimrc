@@ -1,83 +1,46 @@
-"test"
-"Possible entry examples /*{{{*/
+execute pathogen#infect()
 
-	"Example logic statements/*{{{*/
-		
-		
-		"Example if Statement /*{{{*/
+filetype plugin indent on
+syntax on
 
-			"if version >=600           #checks version of VIM
-			" set foldcolumn=2
-			"endif
+colorscheme jellybeans
 
-		"End Example if statement /*}}}*/
+set splitbelow
+set splitright
 
+" split navigations "
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-	"End Example Logic statement/*}}}*/
+" Enable folding "
+set foldmethod=indent
+set foldlevel=99
 
-"End Possible entry examples /*}}}*/
+" Enable folding with the spacebar "
+nnoremap <space> za
 
-"Cold Foding /*{{{*/
-	
-	set foldmethod=marker   "Set Code Folding Methods, possible values: manual,indent,syntax,expr,marker,diff
-	set foldnestmax=10      "Deepest fold is 10 levels.
-	set foldenable       "Set folding Default behaviour at start.
-	set foldlevel=1         "Not sure what this means yet. Will confirm. 
+au BufNewFile,BufRead *.py, *.go
+     set tabstop=2
+     set softtabstop=2
+     set shiftwidth=4
+     set textwidth=79
+     set expandtab
+     set autoindent
+     set fileformat=unix
 
-	"key mapping for code folding"/*{{{*/
-  		
-		inoremap <F9> <C-O>za "Maps fold/unfold key to F9 for convenience ass purposes.
- 	 	nnoremap <F9> za
-  		onoremap <F9> <C-C>za
-  		vnoremap <F9> zf  
- 	
-	"End Key Mapping /*}}}*/
+au BufNewFile,BufRead *.js, *.html, *.css
+     set tabstop=2
+     set softtabstop=2
+     set shiftwidth=2
 
-"End Cold Foding /*}}}*/
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-"Appearance /*{{{*/
+set encoding=utf-8
 
-	set number 	"Display Line Number. 
-	set relativenumber 	"Sets Line numbers to display relative number positions to cursor position.
-	set numberwidth=1	"Sets distance of Number from edge of page.
-	set cpoptions+=n	"uses line columns for text of wrapped lines.
-	highlight LineNr term=NONE cterm=NONE ctermfg=red ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-    colors luinnar
-    "t_Co=256
-    "colors leo
-"End Appearance /*}}}*/
+set nu
 
-"Shortcuts Abbr #/*{{{*/
+set clipboard=unnamed
 
-	"shortcuts for mapping windows navigation to "Alt+Direction Arrow" #/*{{{*/
-		nmap <silent> <A-Up> :wincmd k<CR>
-		nmap <silent> <A-Down> :wincmd j<CR>
-		nmap <silent> <A-Left> :wincmd h<CR>
-		nmap <silent> <A-Right> :wincmd l<CR>
-	"End mapping windows navigation #/*}}}*/
-
-"End Shortcuts Abbr #/*}}}*/
-
-"Behaviors /*{{{*/
-
-	"Tabs to spaces /*{{{*/
-		filetype plugin indent on
-		" show existing tab with 4 spaces width
-		set tabstop=4
-		" when indenting with '>', use 4 spaces width
-		set shiftwidth=4
-		" On pressing tab, insert 4 spaces
-		set expandtab
-	"End Tabs to space /*}}}*/
-
-   "Word Wrapping settings /*{{{*/
-   set wrap linebreak nolist "wraps with adding new line character to document.
-   set tw=79
-   "set fo? - command to display format options.
-   set fo+=t "adds 't' to format options, needed for word wrap.
-   " set fo=0 "used to disable formatoptions
-   set wm=2 "sets a word wrap that cuts off characters before 'n' bytes
-              "before the end of the ling. 
-    "/*{{{*/
-
-"End Behaviors /*}}}*/
+map <C-n> :NERDTreeToggle<CR>
